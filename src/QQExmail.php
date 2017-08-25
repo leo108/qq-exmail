@@ -12,6 +12,7 @@ use Cache\Adapter\PHPArray\ArrayCachePool;
 use GuzzleHttp\ClientInterface;
 use Leo108\QQExmail\Core\AccessToken;
 use Leo108\QQExmail\Core\Exceptions\InvalidArgumentException;
+use Leo108\QQExmail\Department\Department;
 use Leo108\QQExmail\User\User;
 use Leo108\SDK\SDK;
 use Psr\Log\LoggerInterface;
@@ -20,8 +21,9 @@ use Psr\SimpleCache\CacheInterface;
 /**
  * Class QQExmail
  * @package Leo108\QQExmail
- * @property \Leo108\QQExmail\Core\AccessToken $accessToken
- * @property \Leo108\QQExmail\User\User        $user
+ * @property \Leo108\QQExmail\Core\AccessToken      $accessToken
+ * @property \Leo108\QQExmail\User\User             $user
+ * @property \Leo108\QQExmail\Department\Department $department
  */
 class QQExmail extends SDK
 {
@@ -108,6 +110,7 @@ class QQExmail extends SDK
         return [
             'accessToken' => AccessToken::class,
             'user'        => User::class,
+            'department'  => Department::class,
         ];
     }
 

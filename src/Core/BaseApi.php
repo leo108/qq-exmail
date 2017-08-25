@@ -6,7 +6,7 @@
  * Time: 22:06
  */
 
-namespace Leo108\WorkWechat\Core;
+namespace Leo108\QQExmail\Core;
 
 use GuzzleHttp\Middleware;
 use Leo108\QQExmail\Core\Middleware\CheckApiResponseMiddleware;

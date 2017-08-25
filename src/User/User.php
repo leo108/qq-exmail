@@ -8,7 +8,7 @@
 
 namespace Leo108\QQExmail\User;
 
-use Leo108\WorkWechat\Core\BaseApi;
+use Leo108\QQExmail\Core\BaseApi;
 
 class User extends BaseApi
 {

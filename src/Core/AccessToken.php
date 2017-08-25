@@ -9,7 +9,6 @@
 namespace Leo108\QQExmail\Core;
 
 use Leo108\QQExmail\Core\Exceptions\GetAccessTokenException;
-use Leo108\WorkWechat\Core\BaseApi;
 
 class AccessToken extends BaseApi
 {

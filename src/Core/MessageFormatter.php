@@ -6,7 +6,7 @@
  * Time: 18:19
  */
 
-namespace Leo108\WorkWechat\Core;
+namespace Leo108\QQExmail\Core;
 
 use GuzzleHttp\MessageFormatter as BaseMessageFormatter;
 use Psr\Http\Message\RequestInterface;
