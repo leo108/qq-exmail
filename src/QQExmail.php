@@ -12,6 +12,7 @@ use Cache\Adapter\PHPArray\ArrayCachePool;
 use GuzzleHttp\ClientInterface;
 use Leo108\QQExmail\Core\AccessToken;
 use Leo108\QQExmail\Core\Exceptions\InvalidArgumentException;
+use Leo108\QQExmail\Core\Exceptions\MissingSecretException;
 use Leo108\QQExmail\Department\Department;
 use Leo108\QQExmail\User\User;
 use Leo108\SDK\SDK;
@@ -33,9 +34,9 @@ class QQExmail extends SDK
     protected $corpId;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $corpSecret;
+    protected $corpSecrets;
 
     /**
      * @var CacheInterface
@@ -90,11 +91,17 @@ class QQExmail extends SDK
     }
 
     /**
+     * @param string $app
+     * @throws MissingSecretException
      * @return string
      */
-    public function getCorpSecret()
+    public function getCorpSecret($app)
     {
-        return $this->corpSecret;
+        if (!isset($this->corpSecrets[$app])) {
+            throw new MissingSecretException('缺少 secret: '.$app);
+        }
+
+        return $this->corpSecrets[$app];
     }
 
     /**
@@ -122,11 +129,11 @@ class QQExmail extends SDK
 
         $this->corpId = $config['corp_id'];
 
-        if (!isset($config['corp_secret'])) {
-            throw new InvalidArgumentException('缺少 corp_secret 参数');
+        if (!isset($config['corp_secrets']) || empty($config['corp_secrets'])) {
+            throw new InvalidArgumentException('缺少 corp_secrets 参数');
         }
 
-        $this->corpId = $config['corp_id'];
+        $this->corpSecrets = $config['cocorp_secretsrp_id'];
 
         if (isset($config['cache_key_prefix'])) {
             $this->cacheKeyPrefix = $config['cache_key_prefix'];

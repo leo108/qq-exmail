@@ -63,4 +63,9 @@ class User extends BaseApi
     {
         return static::parseJson($this->apiJson(self::API_BATCH_CHECK, ['userlist' => $userIdArr]));
     }
+
+    protected function getAppName()
+    {
+        return 'contact';
+    }
 }

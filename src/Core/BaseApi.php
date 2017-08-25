@@ -17,7 +17,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LogLevel;
 
-class BaseApi extends AbstractApi
+abstract class BaseApi extends AbstractApi
 {
     /**
      * @var QQExmail
@@ -85,8 +85,13 @@ class BaseApi extends AbstractApi
      */
     protected function getTokenMiddleware()
     {
-        return new TokenMiddleware(true, function (RequestInterface $request) {
-            return $this->attachAccessToken($request);
+        $app = $this->getAppName();
+        if (is_null($app)) {
+            return null;
+        }
+
+        return new TokenMiddleware(true, function (RequestInterface $request) use ($app) {
+            return $this->attachAccessToken($app, $request);
         });
     }
 
@@ -118,17 +123,20 @@ class BaseApi extends AbstractApi
     /**
      * 在请求的 url 后加上 access_token 参数
      *
+     * @param string           $app
      * @param RequestInterface $request
      * @param bool             $cache
      *
      * @return RequestInterface
      */
-    private function attachAccessToken(RequestInterface $request, $cache = true)
+    private function attachAccessToken($app, RequestInterface $request, $cache = true)
     {
         $query                 = \GuzzleHttp\Psr7\parse_query($request->getUri()->getQuery());
-        $query['access_token'] = $this->getSDK()->accessToken->getToken(!$cache);
+        $query['access_token'] = $this->getSDK()->accessToken->getToken($app, !$cache);
         $uri                   = $request->getUri()->withQuery(http_build_query($query));
 
         return $request->withUri($uri);
     }
+
+    abstract protected function getAppName();
 }

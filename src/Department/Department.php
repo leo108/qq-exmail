@@ -50,4 +50,9 @@ class Department extends BaseApi
             'fuzzy' => $fuzzy ? 1 : 0,
         ]));
     }
+
+    protected function getAppName()
+    {
+        return 'contact';
+    }
 }
