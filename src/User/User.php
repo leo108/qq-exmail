@@ -45,17 +45,17 @@ class User extends BaseApi
 
     public function simpleList($departmentId, $fetchChild = false)
     {
-        return static::parseJson($this->apiJson(self::API_SIMPLE_LIST, [
+        return static::parseJson($this->apiGet(self::API_SIMPLE_LIST, [
             'department_id' => $departmentId,
-            'fetch_child'   => $fetchChild ? '1' : '0',
+            'fetch_child'   => $fetchChild ? 1 : 0,
         ]));
     }
 
     public function userList($departmentId, $fetchChild = false)
     {
-        return static::parseJson($this->apiJson(self::API_LIST, [
+        return static::parseJson($this->apiGet(self::API_LIST, [
             'department_id' => $departmentId,
-            'fetch_child'   => $fetchChild ? '1' : '0',
+            'fetch_child'   => $fetchChild ? 1 : 0,
         ]));
     }
 

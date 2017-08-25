@@ -43,7 +43,7 @@ abstract class BaseApi extends AbstractApi
      */
     public static function parseJson(ResponseInterface $response)
     {
-        return \GuzzleHttp\json_decode($response->getBody(), true);
+        return \GuzzleHttp\json_decode($response->getBody(), true, 512, JSON_BIGINT_AS_STRING);
     }
 
     /**
