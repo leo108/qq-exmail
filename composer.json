@@ -1,5 +1,5 @@
 {
-    "name": "leo108/qq-exmail-sdk",
+    "name": "leo108/qq-exmail",
     "description": "新版QQ企业邮箱SDK",
     "type": "library",
     "require": {
@@ -13,5 +13,10 @@
             "name": "leo108",
             "email": "leo108@qq.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Leo108\\QQExmail\\": "src/"
+        }
+    }
 }
