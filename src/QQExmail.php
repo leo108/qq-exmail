@@ -133,7 +133,7 @@ class QQExmail extends SDK
             throw new InvalidArgumentException('缺少 corp_secrets 参数');
         }
 
-        $this->corpSecrets = $config['cocorp_secretsrp_id'];
+        $this->corpSecrets = $config['corp_secrets'];
 
         if (isset($config['cache_key_prefix'])) {
             $this->cacheKeyPrefix = $config['cache_key_prefix'];
