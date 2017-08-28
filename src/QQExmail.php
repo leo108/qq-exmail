@@ -13,8 +13,13 @@ use GuzzleHttp\ClientInterface;
 use Leo108\QQExmail\Core\AccessToken;
 use Leo108\QQExmail\Core\Exceptions\InvalidArgumentException;
 use Leo108\QQExmail\Core\Exceptions\MissingSecretException;
-use Leo108\QQExmail\Department\Department;
-use Leo108\QQExmail\User\User;
+use Leo108\QQExmail\Contact\Department;
+use Leo108\QQExmail\Contact\Group;
+use Leo108\QQExmail\MailNotice\Mail;
+use Leo108\QQExmail\SystemLog\Log;
+use Leo108\QQExmail\UniqueLogin\UniqueLogin;
+use Leo108\QQExmail\Contact\User;
+use Leo108\QQExmail\FunctionSetting\UserOption;
 use Leo108\SDK\SDK;
 use Psr\Log\LoggerInterface;
 use Psr\SimpleCache\CacheInterface;
@@ -22,9 +27,14 @@ use Psr\SimpleCache\CacheInterface;
 /**
  * Class QQExmail
  * @package Leo108\QQExmail
- * @property \Leo108\QQExmail\Core\AccessToken      $accessToken
- * @property \Leo108\QQExmail\User\User             $user
- * @property \Leo108\QQExmail\Department\Department $department
+ * @property \Leo108\QQExmail\Core\AccessToken           $accessToken
+ * @property \Leo108\QQExmail\Contact\User               $user
+ * @property \Leo108\QQExmail\Contact\Department         $department
+ * @property \Leo108\QQExmail\Contact\Group              $group
+ * @property \Leo108\QQExmail\FunctionSetting\UserOption $userOption
+ * @property \Leo108\QQExmail\UniqueLogin\UniqueLogin    $uniqueLogin
+ * @property \Leo108\QQExmail\SystemLog\Log              $log
+ * @property \Leo108\QQExmail\MailNotice\Mail            $mail
  */
 class QQExmail extends SDK
 {
@@ -118,6 +128,11 @@ class QQExmail extends SDK
             'accessToken' => AccessToken::class,
             'user'        => User::class,
             'department'  => Department::class,
+            'group'       => Group::class,
+            'userOption'  => UserOption::class,
+            'uniqueLogin' => UniqueLogin::class,
+            'log'         => Log::class,
+            'mail'        => Mail::class,
         ];
     }
 

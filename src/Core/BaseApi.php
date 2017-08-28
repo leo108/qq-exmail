@@ -138,5 +138,18 @@ abstract class BaseApi extends AbstractApi
         return $request->withUri($uri);
     }
 
+    /**
+     * @param string|\DateTime $date
+     * @return string
+     */
+    protected function formatDate($date)
+    {
+        if ($date instanceof \DateTime) {
+            return $date->format('Y-m-d');
+        }
+
+        return $date;
+    }
+
     abstract protected function getAppName();
 }

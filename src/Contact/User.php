@@ -6,11 +6,9 @@
  * Time: 17:11
  */
 
-namespace Leo108\QQExmail\User;
+namespace Leo108\QQExmail\Contact;
 
-use Leo108\QQExmail\Core\BaseApi;
-
-class User extends BaseApi
+class User extends BaseContactApi
 {
     const API_GET = 'user/get';
     const API_CREATE = 'user/create';
@@ -62,10 +60,5 @@ class User extends BaseApi
     public function batchCheck(array $userIdArr)
     {
         return static::parseJson($this->apiJson(self::API_BATCH_CHECK, ['userlist' => $userIdArr]));
-    }
-
-    protected function getAppName()
-    {
-        return 'contact';
     }
 }

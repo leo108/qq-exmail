@@ -6,11 +6,9 @@
  * Time: 14:15
  */
 
-namespace Leo108\QQExmail\Department;
+namespace Leo108\QQExmail\Contact;
 
-use Leo108\QQExmail\Core\BaseApi;
-
-class Department extends BaseApi
+class Department extends BaseContactApi
 {
     const API_CREATE = 'department/create';
     const API_UPDATE = 'department/update';
@@ -49,10 +47,5 @@ class Department extends BaseApi
             'name'  => $name,
             'fuzzy' => $fuzzy ? 1 : 0,
         ]));
-    }
-
-    protected function getAppName()
-    {
-        return 'contact';
     }
 }
