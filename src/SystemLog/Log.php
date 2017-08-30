@@ -18,12 +18,12 @@ class Log extends BaseApi
     const API_BATCH_JOB = 'log/batchjob';
     const API_OPERATION = 'log/operation';
 
-    const MAIL_TYPE_RECEIVE_AND_SEND = 0;
-    const MAIL_TYPE_SEND = 1;
-    const MAIL_TYPE_RECEIVE = 2;
+    const MAIL_TYPE_RECEIVE_AND_SEND = '0';
+    const MAIL_TYPE_SEND = '1';
+    const MAIL_TYPE_RECEIVE = '2';
 
     // todo 操作类型列表
-    const OPERATION_TYPE_ALL = 1;
+    const OPERATION_TYPE_ALL = '1';
 
     // todo 返回的操作类型列表
 

@@ -15,10 +15,10 @@ class UserOption extends BaseApi
     const API_GET = 'useroption/get';
     const API_UPDATE = 'useroption/update';
 
-    const TYPE_FORCE_SSL = 1;
-    const TYPE_IMAP_SMTP = 2;
-    const TYPE_POP_SMTP = 3;
-    const TYPE_ENABLE_SSL = 4;
+    const TYPE_FORCE_SSL = '1';
+    const TYPE_IMAP_SMTP = '2';
+    const TYPE_POP_SMTP = '3';
+    const TYPE_ENABLE_SSL = '4';
 
     public function get($userId, array $types)
     {

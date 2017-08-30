@@ -18,8 +18,9 @@ class User extends BaseContactApi
     const API_LIST = 'user/list';
     const API_BATCH_CHECK = 'user/batchcheck';
 
-    const GENDER_MALE = 1;
-    const GENDER_FEMALE = 2;
+    // 必须为字符串，否则与其他字段同时更新时中文会乱码
+    const GENDER_MALE = '1';
+    const GENDER_FEMALE = '2';
 
     public function get($userId)
     {
