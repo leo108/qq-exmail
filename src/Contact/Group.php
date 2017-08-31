@@ -15,6 +15,11 @@ class Group extends BaseContactApi
     const API_UPDATE = 'group/update';
     const API_DELETE = 'group/delete';
 
+    const ALLOW_TYPE_COMPANY = '0';
+    const ALLOW_TYPE_ALL = '1';
+    const ALLOW_TYPE_GROUP = '2';
+    const ALLOW_TYPE_SPECIFIC = '3';
+
     public function get($groupId)
     {
         return static::parseJson($this->apiGet(self::API_GET, ['groupid' => $groupId]));
