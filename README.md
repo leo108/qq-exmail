@@ -46,7 +46,7 @@ public function __construct(
 ```
 
 * 第一个参数为[配置项](#配置项)。
-* 第二个参数是一个符合 PSR-16 规范的缓存对象，用于保存各个应用的 access token，如果不传则默认使用内存缓存，即每次生命周期的各个应用第一次请求都会先通过 api 获得对应的 access token。
+* 第二个参数是一个符合 PSR-16 规范的缓存对象，用于保存各个应用的 access token，如果不传则默认使用内存缓存，即每次生命周期的各个应用第一次请求都会先通过 api 获得对应的 access token。Laravel 项目可以使用这个类 [SimpleCacheBridge.php](https://gist.github.com/leo108/bd7559654c52000cc9774a80b072c629)
 * 第三个参数是一个 [GuzzleHttp](https://github.com/guzzle/guzzle) 对象，没有特殊需求可以保持 `null`。
 * 第四个参数是一个符合 PSR-3 规范的日志对象，用于打印日志，如果留空则不答应任何日志。
 
