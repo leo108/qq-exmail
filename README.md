@@ -45,9 +45,9 @@ public function __construct(
 ) 
 ```
 
-* 第一个参数为配置项。
-* 第二个参数是一个符合 PSR-16 规范的缓存对象，用于保存各个应用的 access token，如果不存则默认使用内存缓存，即每次生命周期的各个应用第一次请求都会先通过 api 获得对应的 access token。
-* 第三个参数是一个 GuzzleHttp 对象，没有特殊需求可以保持 `null`。
+* 第一个参数为[配置项](#配置项)。
+* 第二个参数是一个符合 PSR-16 规范的缓存对象，用于保存各个应用的 access token，如果不传则默认使用内存缓存，即每次生命周期的各个应用第一次请求都会先通过 api 获得对应的 access token。
+* 第三个参数是一个 [GuzzleHttp](https://github.com/guzzle/guzzle) 对象，没有特殊需求可以保持 `null`。
 * 第四个参数是一个符合 PSR-3 规范的日志对象，用于打印日志，如果留空则不答应任何日志。
 
 ## 配置项
@@ -59,7 +59,7 @@ public function __construct(
 
 ## 异常
 
-本 SDK 中所有的异常均继承自 `Leo108\QQExmail\Core\Exceptions\QQExmailException`
+本项目中所有的异常均继承自 `Leo108\QQExmail\Core\Exceptions\QQExmailException`
 
 * `Leo108\QQExmail\Core\Exceptions\GetAccessTokenException` 使用 corp id 和 corp secret 换取 access token 失败
 * `Leo108\QQExmail\Core\Exceptions\MissingSecretException` 使用应用却没有配置该应用的 secret
@@ -67,6 +67,14 @@ public function __construct(
 * `Leo108\QQExmail\Core\Exceptions\ApiException` 当 API 接口返回的 errcode 字段不为 0 时抛出
 
 ## API 列表
+
+* [部门管理](#部门管理)
+* [成员管理](#成员管理)
+* [邮件群组管理](#邮件群组管理)
+* [功能设置](#功能设置)
+* [系统日志](#系统日志)
+* [新邮件提醒](#新邮件提醒)
+* [单点登录](#单点登录)
 
 ### 部门管理
 
@@ -272,3 +280,12 @@ $exmail->mail->newAccount('leo108@exmail.com', '2016-10-01', '2016-10-07');
 ```
 $exmail->uniqueLogin->getLoginUrl('leo108@exmail.com');
 ```
+
+## 其他
+
+本项目是基于我的另外一个开源项目 [php_sdk_skeleton](https://github.com/leo108/php_sdk_skeleton) 开发的。
+通过 php_sdk_skeleton 可以快速构建基于 Http API 的 SDK。
+
+## License
+
+[MIT](https://github.com/leo108/qq-exmail/blob/master/LICENSE).
